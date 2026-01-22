@@ -2,21 +2,24 @@
   "name": "习惯打卡",
   "short_name": "习惯打卡",
   "description": "帮助你养成好习惯的打卡应用",
-  "start_url": "/",
+  "start_url": "./",
+  "scope": "./",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#6366f1",
   "orientation": "portrait",
   "icons": [
     {
-      "src": "icon-192.png",
+      "src": "https://via.placeholder.com/192x192/6366f1/ffffff?text=习惯",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     },
     {
-      "src": "icon-512.png",
+      "src": "https://via.placeholder.com/512x512/6366f1/ffffff?text=习惯",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     }
   ]
 }
