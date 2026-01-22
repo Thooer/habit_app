@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>添加测试数据</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .btn {
+            background: #6366f1;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+            margin: 10px 0;
+        }
+        .btn:hover {
+            background: #4f46e5;
+        }
+        .info {
+            background: #e0e7ff;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .success {
+            background: #d1fae5;
+            color: #065f46;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎯 添加测试数据</h1>
+        
+        <div class="info">
+            <h3>将添加以下习惯：</h3>
+            <ul>
+                <li>🏃 晨跑 - 连续15天</li>
+                <li>💪 健身 - 连续7天</li>
+                <li>🧘 冥想 - 连续30天（解锁月度冠军）</li>
+                <li>💧 按时喝水 - 连续3天</li>
+                <li>📚 阅读 - 连续100天（解锁所有成就）</li>
+            </ul>
+        </div>
+
+        <button class="btn" onclick="addTestData()">添加测试数据</button>
+        <button class="btn" onclick="clearData()" style="background: #ef4444;">清空所有数据</button>
+        
+        <div class="success" id="successMsg">
+            ✅ 数据添加成功！<br>
+            <a href="index.html" style="color: #065f46; font-weight: bold;">点击这里打开应用</a>
+        </div>
+    </div>
+
+    <script>
+        function addTestData() {
+            const testData = {
+                habits: [
+                    {
+                        id: 1737561600000,
+                        name: "晨跑",
+                        icon: "🏃",
+                        createdAt: "2026-01-01T06:00:00.000Z"
+                    },
+                    {
+                        id: 1737561700000,
+                        name: "健身",
+                        icon: "💪",
+                        createdAt: "2026-01-05T07:00:00.000Z"
+                    },
+                    {
+                        id: 1737561800000,
+                        name: "冥想",
+                        icon: "🧘",
+                        createdAt: "2026-01-10T08:00:00.000Z"
+                    },
+                    {
+                        id: 1737561900000,
+                        name: "按时喝水",
+                        icon: "💧",
+                        createdAt: "2026-01-15T09:00:00.000Z"
+                    },
+                    {
+                        id: 1737562000000,
+                        name: "阅读",
+                        icon: "📚",
+                        createdAt: "2026-01-08T20:00:00.000Z"
+                    }
+                ],
+                records: []
+            };
+
+            const today = new Date();
+
+            // 晨跑 - 15天
+            for (let i = 0; i < 15; i++) {
+                const date = new Date(today);
+                date.setDate(date.getDate() - i);
+                testData.records.push({
+                    id: 1737570000000 + i,
+                    habitId: 1737561600000,
+                    date: date.toISOString().split('T')[0]
+                });
+            }
+
+            // 健身 - 7天
+            for (let i = 0; i < 7; i++) {
+                const date = new Date(today);
+                date.setDate(date.getDate() - i);
+                testData.records.push({
+                    id: 1737580000000 + i,
+                    habitId: 1737561700000,
+                    date: date.toISOString().split('T')[0]
+                });
+            }
+
+            // 冥想 - 30天
+            for (let i = 0; i < 30; i++) {
+                const date = new Date(today);
+                date.setDate(date.getDate() - i);
+                testData.records.push({
+                    id: 1737590000000 + i,
+                    habitId: 1737561800000,
+                    date: date.toISOString().split('T')[0]
+                });
+            }
+
+            // 按时喝水 - 3天
+            for (let i = 0; i < 3; i++) {
+                const date = new Date(today);
+                date.setDate(date.getDate() - i);
+                testData.records.push({
+                    id: 1737600000000 + i,
+                    habitId: 1737561900000,
+                    date: date.toISOString().split('T')[0]
+                });
+            }
+
+            // 阅读 - 100天
+            for (let i = 0; i < 100; i++) {
+                const date = new Date(today);
+                date.setDate(date.getDate() - i);
+                testData.records.push({
+                    id: 1737610000000 + i,
+                    habitId: 1737562000000,
+                    date: date.toISOString().split('T')[0]
+                });
+            }
+
+            localStorage.setItem('habitTrackerDB', JSON.stringify(testData));
+            
+            document.getElementById('successMsg').style.display = 'block';
+            
+            setTimeout(() => {
+                window.location.href = 'index.html';
+            }, 2000);
+        }
+
+        function clearData() {
+            if (confirm('确定要清空所有数据吗？')) {
+                localStorage.clear();
+                alert('数据已清空！');
+            }
+        }
+    </script>
+</body>
+</html>
+

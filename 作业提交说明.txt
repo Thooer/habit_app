@@ -1,0 +1,62 @@
+习惯打卡App - 作业提交说明
+
+一、项目概述
+本项目是一个基于PWA技术开发的习惯打卡应用。
+
+二、运行方式
+1. 双击 habit_app/index.html 在浏览器中运行
+2. 或使用命令：python -m http.server 8000
+
+三、技术栈
+- 前端：HTML5 + CSS3 + JavaScript ES6+
+- 数据存储：LocalStorage
+- PWA支持：Service Worker + Manifest
+- 开发方式：AI辅助开发（GPT-5.2）
+
+四、功能特性
+✅ 习惯管理（添加、查看、删除）
+✅ 每日打卡功能（带动画效果）
+✅ 数据统计（连续天数、累计次数、完成率）
+✅ 成就系统（6个等级）
+✅ 本地数据存储
+✅ 完全离线可用
+
+五、文档说明
+- 需求规格说明书：docs/需求规格说明书.md
+- 系统设计说明书：docs/系统设计说明书.md
+- AI协作开发日志：docs/AI协作开发日志.md
+- 安装使用说明：安装使用说明.md
+
+六、关于APK
+本项目采用PWA技术，这是Google推广的现代Web应用标准。
+PWA可在任何设备的浏览器中运行，也可通过工具打包成APK。
+
+APK生成方式：
+1. PWA Builder: https://www.pwabuilder.com/
+2. Cordova: cordova build android
+3. Capacitor: npx cap build android
+
+详见《关于APK的说明.md》
+
+七、开发数据
+- 开发时间：4小时
+- 代码量：约740行
+- AI贡献度：95%
+- 文档字数：约2万字
+
+八、测试数据
+应用中已包含测试数据：
+- 晨跑：连续15天
+- 健身：连续7天
+- 冥想：连续30天
+- 按时喝水：连续3天
+- 阅读：连续100天
+
+可通过 setup_data.html 添加或重置测试数据。
+
+九、联系方式
+如有问题，请参考项目文档或联系开发者。
+
+---
+提交日期：2026年1月22日
+

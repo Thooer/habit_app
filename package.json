@@ -1,0 +1,24 @@
+{
+  "name": "habit-tracker",
+  "version": "1.0.0",
+  "description": "习惯打卡App",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8000"
+  },
+  "keywords": [
+    "habit",
+    "tracker",
+    "pwa"
+  ],
+  "author": "Student",
+  "license": "MIT",
+  "directories": {
+    "doc": "docs"
+  },
+  "dependencies": {
+    "@capacitor/android": "^8.0.1",
+    "@capacitor/cli": "^8.0.1",
+    "@capacitor/core": "^8.0.1"
+  }
+}
